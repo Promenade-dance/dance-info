@@ -16,16 +16,16 @@
 	"video": [
 		{
 			"source": "youtube",
-			"url": "test",
+			"url": "https://www.youtube.com/watch?v=FKYR7HX9t_c",
 			"text": "YouTube видео"
 		},
 		{
 			"source": "vk",
-			"url": "test",
+			"url": "https://vk.com/promenade_dance",
 			"text": "Vk видео"
 		},
 		{
-			"url": "test",
+			"url": "https://raw.githubusercontent.com/AnastasijaSerova/SVG/refs/heads/main/Promenade/Promenade_logo%20-%20trains%20-%20animated.svg",
 			"text": "другое видео"
 		}
 	]
