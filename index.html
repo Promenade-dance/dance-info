@@ -42,8 +42,9 @@
 			
 			const searchParams = new URLSearchParams(document.location.search);
 			console.log(window.sp = searchParams)
-			if (searchParams.get("dance")) {
-				fetch(`./${searchParams.get("dance")}.json`)
+
+			function loadDance(name) {\
+				fetch(`./${name}.json`)
 					.then((res) => {
 						return res.json();
 					})
@@ -52,8 +53,14 @@
 							document.querySelector("#main").appendChild(getDanceCard(data));
 						});
 					});
+			}
+
+			if (searchParams.get("tgWebAppStartParam")) {
+				loadDance(searchParams.get("tgWebAppStartParam"));
+			} else if (searchParams.get("dance")) {
+				loadDance(searchParams.get("dance"));
 			} else {
-				document.querySelector("#main").innerHTML = document.location.href;
+				// document.querySelector("#main").innerHTML = document.location.href;
 			}
 		</script>
 	</body>
