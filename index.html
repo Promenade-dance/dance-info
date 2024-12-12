@@ -43,7 +43,7 @@
 			const searchParams = new URLSearchParams(document.location.search);
 			console.log(window.sp = searchParams)
 
-			function loadDance(name) {\
+			function loadDance(name) {
 				fetch(`./${name}.json`)
 					.then((res) => {
 						return res.json();
