@@ -1,0 +1,32 @@
+{
+	"title": "Название танца",
+	"comment": "Комментарий",
+	"scheme_short": "Схема короткая",
+	"scheme_long": "Схема длинная",
+	"music": [
+		{
+			"title": "Музыка 1",
+			"url": "Walzer Medley.mp3"
+		},
+		{
+			"title": "Музыка 2",
+			"url": "Walzer Medley.mp3"
+		}
+	],
+	"video": [
+		{
+			"source": "youtube",
+			"url": "test",
+			"text": "YouTube видео"
+		},
+		{
+			"source": "vk",
+			"url": "test",
+			"text": "Vk видео"
+		},
+		{
+			"url": "test",
+			"text": "другое видео"
+		}
+	]
+}

@@ -1,0 +1,6 @@
+<svg width="32" height="32" viewBox="-16 -16 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<g transform="rotate(45) scale(0.95)">
+		<path id="chain" fill="gray" d="M -8 -12 a 8 8 0 0 1 16 0 l 0 9 a 8 8 0 0 1 -8 8 a 2 2 0 0 1 0 -4 a 4 4 0 0 0 4 -4 l 0 -9 a 4 4 0 0 0 -8 0 l 0 5.85 A 10 10 0 0 0 -8 -3 Z" />
+		<use href="#chain" transform="rotate(180)"/>
+	</g>
+</svg>

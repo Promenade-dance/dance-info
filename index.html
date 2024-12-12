@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<!-- <script src="https://telegram.org/js/telegram-web-app.js"></script> -->
+		<meta charset=utf-8>
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="fonts/stylesheet.css" type="text/css" charset="utf-8"/>
+		<style>
+			@import url("fonts/stylesheet.css");
+			:root {
+				--background-color: #fffaf4;
+				--background-color-2: #ffddb3;
+				--brown: #b9663a;
+			}
+			body {
+				color: var(--brown);
+				background-color: var(--background-color);
+				font-family: 'itim_cyrillic';
+				font-size: 23px;
+			}
+			#main {
+				max-width: 20em;
+				margin: auto;
+			}
+			#title {
+				font-family: 'itim_cyrillic';
+				font-weight: normal;
+				margin-block: 0.5em;
+			}
+			#comment {
+				margin-block: 0.5em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main"></div>
+		<script src="cssLoader.js"></script>
+		<script type="module">
+			import getDanceCard from "./get_dance_card.mjs";
+			import { musicHandler} from "./components/music/musicHandler.mjs";
+
+			window.musicHandler = musicHandler;
+			
+			const searchParams = new URLSearchParams(document.location.search);
+			if (searchParams.get("dance")) {
+				fetch(`./${searchParams.get("dance")}.json`)
+					.then((res) => {
+						return res.json();
+					})
+					.then((data) => {
+						window.cssLoader.promise.then(() => {
+							document.querySelector("#main").appendChild(getDanceCard(data));
+						});
+					});
+			}
+		</script>
+	</body>
+</html>

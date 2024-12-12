@@ -1,0 +1,41 @@
+.component__Details {
+	& > .title, & > .roll > .content {
+		padding-inline: 0.5em;
+	}
+
+	& > .title {
+		background-color: var(--background-color-2);
+		padding-block: 0.5em;
+		border-radius: 0.5em;
+		margin-block: 0.1em;
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+	
+		& > svg {
+			transition: all 0.4s ease-in-out;
+			width: 1em;
+			height: 1em;
+		}
+	}
+
+	& > .roll {
+		margin-block: 0.5em;
+		overflow: hidden;
+		transition: all 0.4s ease-in-out;
+		padding: 0;
+		max-height: 0;
+		& > .content {
+			margin: 0;
+			overflow: hidden;
+	
+			& p {
+				margin: 0;
+			}
+		}
+	}
+
+	&.open > .title > svg{
+		transform: rotate(135deg);
+	}
+}

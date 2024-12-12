@@ -1,0 +1,16 @@
+.component__VideoLink {
+	display: flex;
+	align-items: center;
+	& > img {
+		height: 1em;
+		margin: 0.1em;
+	}
+	& > a {
+		color: var(--brown);
+		text-decoration: underline;
+		&:hover {
+			color: gray;
+			cursor: pointer;
+		}
+	}
+}

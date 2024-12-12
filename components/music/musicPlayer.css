@@ -1,0 +1,129 @@
+.component__MusicPlayer {
+	margin-block: 0.2em;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	& > .play-pause-button {
+		flex: 0 0 2em;
+		aspect-ratio: 1/1;
+		cursor: pointer;
+	}
+	& > .info {
+		flex-grow: 1;
+		flex-shrink: 1;
+		min-width: 0;
+		& > .music-name {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			text-wrap: nowrap;
+		}
+	}
+}
+/* play/pause button animation */
+@keyframes play-pause-show {
+	from {
+		opacity: 0;
+		transform: rotate(-120deg); 
+	}
+	to {
+		opacity: 1;
+		transform: rotate(0deg); 
+	}
+}
+
+@keyframes play-pause-hide {
+	from {
+		opacity: 1;
+		transform: rotate(0deg); 
+	}
+	to {
+		opacity: 0;
+		transform: rotate(120deg); 
+	}
+}
+
+.component__MusicPlayer {
+	&.play {
+		& > .play-pause-button > .play {
+			opacity: 1;
+			animation-name: play-pause-show;
+			animation-timing-function: ease;
+			animation-duration: 0.5s;
+		}
+		& > .play-pause-button > .pause {
+			opacity: 0;
+			animation-name: play-pause-hide;
+			animation-timing-function: ease;
+			animation-duration: 0.5s;
+		}
+	}
+	&.pause {
+		& > .play-pause-button > .play {
+			opacity: 0;
+			animation-name: play-pause-hide;
+			animation-timing-function: ease;
+			animation-duration: 0.5s;
+		}
+		& > .play-pause-button > .pause {
+			opacity: 1;
+			animation-name: play-pause-show;
+			animation-timing-function: ease;
+			animation-duration: 0.5s;
+		}
+	}
+}
+
+/* show progress */
+
+@keyframes show-progress {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes hide-progress {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+.component__MusicPlayer.show-progress > .info {
+	& > .component__ProgressBar {
+		opacity: 1;
+		animation-name: show-progress;
+		animation-timing-function: ease;
+		animation-duration: 1s;
+		cursor: pointer;
+	}
+	& > .music-name {
+		transform: translateY(0);
+	}
+}
+
+.component__MusicPlayer.hide-progress > .info {
+	& > .component__ProgressBar {
+		opacity: 0;
+		animation-name: hide-progress;
+		animation-timing-function: ease;
+		animation-duration: 0.5s;
+	}
+	& > .music-name {
+		transform: translateY(35%);
+	}
+}
+
+.component__MusicPlayer > .info > .music-name {
+	transition: transform 0.5s ease;
+}
+
+.component__MusicPlayer > .info > .component__ProgressBar {
+	width: 100%;
+}
