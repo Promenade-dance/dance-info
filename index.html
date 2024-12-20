@@ -1,6 +1,5 @@
 <html>
 	<head>
-		<!-- <script src="https://telegram.org/js/telegram-web-app.js?56"></script> -->
 		<meta charset=utf-8>
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="fonts/stylesheet.css" type="text/css" charset="utf-8"/>
@@ -46,18 +45,17 @@
 			function loadDance(name) {
 				fetch(`./${name}.json`)
 					.then((res) => {
-						return res.json();
+						if (res.ok) {
+							Promise.all([window.cssLoader.promise, res.json()]).then((res) => {
+								document.querySelector("#main").appendChild(getDanceCard(res[1]));
+							});
+						} else {
+								document.querySelector("#main").innerHTML = `<div style="display: flex; flex-direction: column; align-items: center; gap: 1em; margin-block: 1em;"><div style="font-size: 1.5em;">Танец не найден</div> <img style="display: block; height: 2em; margin:auto;" src="./icons/promenade_text_frame.svg"/><div>`
+						}
 					})
-					.then((data) => {
-						window.cssLoader.promise.then(() => {
-							document.querySelector("#main").appendChild(getDanceCard(data));
-						});
-					});
 			}
 
-			if (searchParams.get("tgWebAppStartParam")) {
-				loadDance(searchParams.get("tgWebAppStartParam"));
-			} else if (searchParams.get("dance")) {
+			if (searchParams.get("dance")) {
 				loadDance(searchParams.get("dance"));
 			} else {
 				document.querySelector("#main").innerHTML = document.location.href;

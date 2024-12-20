@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 150 150">
+	<defs>
+		<style>
+			:root {
+				--brown: #b9663a;
+			}
+		</style>
+		<path id="path_part_1" fill="none" stroke="var(--brown)" stroke-width="3" d="M 15 15 l 0 -45 a 12 12 0 0 1 12 -12 l 22 0 a 27 27 0 0 1 27 27 l 0 3 a 27 27 0 0 1 -27 27 l -19 0"/>
+		<path id="path_part_2" fill="none" stroke="var(--brown)" stroke-width="3" d="M -15 -15 l 0 -34 a 27 27 0 0 1 27 -27 l 3 0 a 27 27 0 0 1 27 27 l 0 22 a 12 12 0 0 1 -12 12 l -1 0"/>
+	</defs>
+	<g transform=" translate(75 75) rotate(45)">
+		<use href="#path_part_1" transform="rotate(270)"/>
+		<use href="#path_part_1" transform="rotate(180)"/>
+		<use href="#path_part_1" transform="rotate(90)"/>
+		<use href="#path_part_1" />
+		<use href="#path_part_2" />
+		<use href="#path_part_2" transform="rotate(90)"/>
+		<use href="#path_part_2" transform="rotate(180)"/>
+		<use href="#path_part_2" transform="rotate(270)"/>
+	</g>
+</svg>
