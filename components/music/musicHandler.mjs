@@ -9,7 +9,7 @@ class MusicItem {
 
 	async getBlob() {
 		if (this.blob == undefined) {
-			return fetch("audio/" + this.url).then(res => res.blob()).then(blob => this.blob = blob);
+			return fetch(this.url).then(res => res.blob()).then(blob => this.blob = blob);
 		} else {
 			return Promise.resolve(this.blob);
 		}

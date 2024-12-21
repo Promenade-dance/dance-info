@@ -1,4 +1,3 @@
-// import {MusicItem} from "./music_handler.mjs";
 import Details from "./components/details/details.mjs";
 import MusicPlayer from "./components/music/musicPlayer.mjs";
 import VideoLink from "./components/video/videoLink.mjs";
@@ -6,6 +5,7 @@ import VideoLink from "./components/video/videoLink.mjs";
 export default function getDanceCard(obj) {
 	let res = document.createDocumentFragment();
 	let part;
+	// console.log(window.u = obj.url)
 	if ("title" in obj) {
 		part = document.createElement("h1");
 		part.setAttribute("id", "title");
@@ -29,7 +29,7 @@ export default function getDanceCard(obj) {
 	if ("music" in obj) {
 		part = Details("Музыка", "", "music");
 		obj["music"].forEach((m) => {
-			part.contentElement.appendChild(MusicPlayer(m["title"], m["url"]));
+			part.contentElement.appendChild(MusicPlayer(m["title"], new URL(m["url"], obj.url).toString()));
 		});
 		res.append(part);
 	}

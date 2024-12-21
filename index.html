@@ -40,13 +40,14 @@
 			window.musicHandler = musicHandler;
 			
 			const searchParams = new URLSearchParams(document.location.search);
-			console.log(window.sp = searchParams)
 
 			function loadDance(name) {
-				fetch(`./${name}.json`)
+				const url = new URL(`${name}/${name}.json`, "https://promenade-dance.github.io/dances/");
+				fetch(url)
 					.then((res) => {
 						if (res.ok) {
 							Promise.all([window.cssLoader.promise, res.json()]).then((res) => {
+								res[1].url = url;
 								document.querySelector("#main").appendChild(getDanceCard(res[1]));
 							});
 						} else {
