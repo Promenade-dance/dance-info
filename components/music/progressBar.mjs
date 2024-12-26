@@ -1,5 +1,3 @@
-import { musicHandler } from "./musicHandler.mjs";
-
 export default function ProgressBar(musicPlayer) {
 	const el = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 	el.musicPlayer = musicPlayer;
@@ -93,7 +91,7 @@ class ClickManager {
 	addMouseEvents() {
 		const onMouseDown = (event) => {
 			event.preventDefault();
-			musicHandler.pause(this.target.musicPlayer);
+			this.target.musicPlayer.audio.pause()
 			this.isMouseMoving = true;
 			this.isTouchMoving = false;
 			this.setProgressMouseX(event.x);
@@ -114,7 +112,7 @@ class ClickManager {
 	addTouchEvents() {
 		const onTouchStart = (event) => {
 			event.preventDefault();
-			musicHandler.pause(this.target.musicPlayer);
+			this.target.musicPlayer.audio.pause();
 			this.isMouseMoving = false;
 			if (this.isTouchMoving) { return; }
 			this.isTouchMoving = true;
